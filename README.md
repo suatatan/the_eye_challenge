@@ -124,9 +124,13 @@ Example of events:
 * It must be implemented in Python with Django.
 
 ---------------------------------------
-QUESTION: According to Gisela's email  *The client’s stack is Django, Django REST Framework*. Do we prefer Django or Django REST API? If we prefer Django REST API, As I understand for query operations we just provide an API interface rather than HTML templates and forms. Is that true?
 
-QUESTION: I understand that my task just defining the Django Models(including relations) and setting some test data according to the requirements you defined. Is that true?
+QUESTION A: According to Gisela's email  *The client’s stack is Django, Django REST Framework*. Do we prefer Django or Django REST API? If we prefer Django REST API, As I understand for query operations we just provide an API interface rather than HTML templates and forms. Is that true?
+
+QUESTION B: In the same e-mail, Giseala mentioned DB as Postgres however I cannot see it in README.md (in your Github gist) Should I use Postgres or embededd SQLite in Django for this challenge.
+
+QUESTION C: I understand that my task just defining the Django Models(including relations) and setting some test data according to the requirements you defined. Is that true?
+
 ---------------------------------------
 
 * Share a public github repository when you are done.
