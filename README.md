@@ -10,13 +10,53 @@ You work in an organization that has multiple applications serving websites, but
 
 In order to be able to analyze user behavior (pages that are being accessed, buttons that are being clicked, forms that are being submitted, etc..), your team realized you need a service that aggregates that data.
 
+---------------------------------------
+*Types of interaction*
+
+- *Form submission*
+- *Page access*
+- *Button click*
+---------------------------------------
+
 You're building "The Eye", a service that will collect those events from these applications, to help your org making better data-driven decisions.
+
 
 ## Workflow
 
-* We don't want you to be a code monkey, some things will not be 100% clear - and that's intended. We want to understand your assumptions and approaches you've taken during the implementation - if you have questions, don't hesitate to ask
+* We don't want you to be a code monkey, **some things will not be 100% clear - and that's intended. We want to understand your assumptions and approaches you've taken during the implementation** - if you have questions, don't hesitate to ask
 * Your commit history matters, we want to know the steps you've taken throughout the process, make sure you don't commit everything at once
 * In the README.md of your project, explain what conclusions you've made from the entities, constraints, requirements and use cases of this test
+
+---------------------------------------
+Conclusions about the entities, constraints, requirements, and use cases
+(Initial)
+
+- Entity: An model or object that will be defined in the project(for this case django-rest)
+- Constraint: When I hear this term here are three options:
+    - The *literal* constraints you have defined in the title 'Constraints & Requirements'
+    - The  database *plain* constraints like foreign key
+    - Django Model constraints like:
+
+        ````
+        class Event(models.Model):
+            start_date = models.DatetimeField() 
+            end_date = models.DatetimeField()
+
+        class Meta:
+            constraints = [
+                # Ensures constraint on DB level, raises IntegrityError (500 on debug=False)
+                CheckConstraint(
+                    check=Q(end_date__gt=F('start_date')), name='check_start_date',
+                ),
+            ]
+        ````
+        In Django constraints, we have the option `CheckConstraint` that provides more options for check.
+
+        Assumption: Our aim with constraints is **data integrity** if we are using them as django or db constraints
+
+- Requirements: A condition or capability needed by our project to solve a problem or achieve an objective. 
+- User cases: A requirements specification is necessary to describe precisely what the system needs to do, but it sometimes may be an awful tool for communication. This is where the use case fits in.
+---------------------------------------
 
 ## Entities
 
@@ -82,6 +122,13 @@ Example of events:
 * When Applications talk to "The Eye", make sure to not leave them hanging
 * Your models should have proper constraints to avoid race conditions when multiple events are being processed at the same time
 * It must be implemented in Python with Django.
+
+---------------------------------------
+QUESTION: According to Gisela's email  *The client’s stack is Django, Django REST Framework*. Do we prefer Django or Django REST API? If we prefer Django REST API, As I understand for query operations we just provide an API interface rather than HTML templates and forms. Is that true?
+
+QUESTION: I understand that my task just defining the Django Models(including relations) and setting some test data according to the requirements you defined. Is that true?
+---------------------------------------
+
 * Share a public github repository when you are done.
 
 ## Use cases:
