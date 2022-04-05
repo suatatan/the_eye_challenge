@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client Application 1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1>Client Application</h1>
+        <hr>
+        <p v-html="message"></p>
+        <hr>
+        <p>This application sends your interactions to the EYE APP </p>
+        <h2>Sample Events</h2>
+
+        <h3>Button Clicked</h3>
+        <button @click="send_click">Click Me</button>
+
+
+
+
+
+    </div>
+
+    <script>
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8'
+        }
+
+        Vue.createApp({
+            data() {
+                return {
+                    message: 'Welcome'
+                }
+            },
+            methods: {
+                send_click() {
+                    console.log("---clicked---")
+                    axios
+                        .post("http://localhost:8000/apps/",
+                        {
+                            "name": "app_test",
+                            "token": "app_token"
+                        },  {headers: headers})
+                        .then(res => {
+                            console.log("------")
+                            console.log(res)
+                        })
+                            }
+                        }
+        }).mount('#app')
+    </script>
+
+</body>
+
+
+
+</html>

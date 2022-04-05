@@ -10,6 +10,9 @@ You work in an organization that has multiple applications serving websites, but
 
 In order to be able to analyze user behavior (pages that are being accessed, buttons that are being clicked, forms that are being submitted, etc..), your team realized you need a service that aggregates that data.
 
+*Verdict: To detect user click or similar activities the API should be with Javascript like Google Analytics
+or yandex API*
+
 ---------------------------------------
 *Types of interaction*
 
