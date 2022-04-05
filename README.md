@@ -68,12 +68,12 @@ Application
 ```
 
 * An Event has a category, a name and a payload of data (the payload can change according to which event an Application is sending)
-* Different types of Events (identified by category + name) can have different validations for their payloads
-* An Event is associated to a Session
-* Events in a Session should be sequential and ordered by the time they occurred
-* The Application sending events is responsible for generating the Session identifier 
-* Applications should be recognized as "trusted clients" to "The Eye"
-* Appllications can send events for the same session 
+* Different types of Events (identified by category + name) can have different validations for their payloads 
+* An Event is associated to a Session + 
+* Events in a Session should be sequential and ordered by the time they occurred +
+* The Application sending events is responsible for generating the Session identifier +
+* Applications should be recognized as "trusted clients" to "The Eye" +
+* Appllications can send events for the same session +
 
 Example of events:
 ```json
@@ -119,8 +119,8 @@ Example of events:
 ## Constraints & Requirements
 
 * "The Eye" will be receiving, in average, ~100 events/second, so consider not processing events in real time
-* When Applications talk to "The Eye", make sure to not leave them hanging
-* Your models should have proper constraints to avoid race conditions when multiple events are being processed at the same time
+* When Applications talk to "The Eye", make sure to not leave them hanging +
+* Your models should have proper constraints to avoid race conditions when multiple events are being processed at the same time +
 * It must be implemented in Python with Django.
 
 ---------------------------------------
@@ -145,8 +145,8 @@ QUESTION C: I understand that my task just defining the Django Models(including 
   * A specific time range
 
 * Your team should be able to monitor errors that happen in "The Eye", for example:
-  * An event that is sending an unexpected value in the payload
-  * An event that has an invalid timestamp (i.e.: future)
+  * An event that is sending an unexpected value in the payload +
+  * An event that has an invalid timestamp (i.e.: future) +
 
 
 ## Pluses - if you wanna go beyond
