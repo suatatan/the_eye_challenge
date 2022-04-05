@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from eyeapp.models import Application, Event
+admin.site.register(Application)
+admin.site.register(Event)
