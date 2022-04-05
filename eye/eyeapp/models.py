@@ -16,9 +16,3 @@ class Application(models.Model):
     name=models.CharField(max_length=30)
     token=models.CharField(max_length=30)
     sessions=models.ManyToManyField(Event)
-
-
-
-#python 2 kullanıcıları için def __unicode__(self) 
-    def __str__(self):
-        return '%s %s'%(self.isim,self.soyisim)
