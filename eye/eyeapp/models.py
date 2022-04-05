@@ -15,4 +15,4 @@ def __str__(self):
 class Application(models.Model):
     name=models.CharField(max_length=30)
     token=models.CharField(max_length=30)
-    sessions=models.ManyToManyField(Event)
+    # sessions=models.ManyToManyField(Event)

@@ -1,10 +1,10 @@
 from eyeapp.models import Application, Event
 from rest_framework import serializers
 
-class ApplicationSerializer(serializers.HyperlinkedModelSerializer):
+class ApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model=Application
-        fields=('name','token','sessions')
+        fields=('name','token')
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
