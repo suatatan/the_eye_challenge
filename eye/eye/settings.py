@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-%_2u9a586mh3kdej9nf)&otd7p*7jus1ecjtz!+jt_4k6x-9@4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# I kept this all however to secure clients, the clients' IP's or domains of the apps should be defined here(manually or dynamically)
 ALLOWED_HOSTS = []
 
 
