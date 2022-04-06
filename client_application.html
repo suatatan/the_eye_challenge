@@ -21,9 +21,9 @@
         <h2>Sample Events</h2>
 
         <h3>Button Clicked</h3>
-        <button @click="send_click">Click Me</button>
+        <button @click="send_click">Main Button - Click Me</button>
 
-
+        
 
 
 
@@ -34,6 +34,7 @@
             'Accept': 'application/json',
             'Content-Type': 'application/json;charset=UTF-8'
         }
+        const app_id = "178f6fb07c7b477d995fcebb698ea61f" //This is a unique identifier for each application
 
         Vue.createApp({
             data() {
@@ -45,14 +46,16 @@
                 send_click() {
                     console.log("---clicked---")
                     axios
-                        .post("http://localhost:8000/apps/",
+                        .post("http://localhost:8000/events/",
                         {
-                            "name": "app_test",
-                            "token": "app_token"
-                        },  {headers: headers})
+                        "category": "page interaction",
+                        "name": "page click",
+                        "data": "{'host' : 'clientsite.org'}",
+                        "related_application": "178f6fb0-7c7b-477d-995f-cebb698ea61f"
+                    },  {headers: headers})
                         .then(res => {
                             console.log("------")
-                            console.log(res)
+                            console.log(res.data)
                         })
                             }
                         }
